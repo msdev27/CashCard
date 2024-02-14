@@ -53,7 +53,7 @@ class CashCardJsonTest {
                 """;
         
         assertThat(json.parse(expected)).isEqualTo(new CashCard(99L, 123.45, "ramam1"));
-        assertThat(json.parseObject(expected).id()).isEqualTo(99);
+        assertThat(json.parseObject(expected).id()).isEqualTo(99L);
         assertThat(json.parseObject(expected).amount()).isEqualTo(123.45);
     }
 
@@ -67,8 +67,8 @@ class CashCardJsonTest {
         String expected = """
             [
                 {"id": 99, "amount": 123.45, "owner": "ramam1"},
-                {"id":100, "amount":1.00, "owner": "ramam1"},
-                {"id":101, "amount":150.00, "owner": "ramam1"}
+                {"id":100, "amount": 1.00, "owner": "ramam1"},
+                {"id":101, "amount": 150.00, "owner": "ramam1"}
             ]
         """;
         assertThat(jsonList.parse(expected)).isEqualTo(cashCards);
